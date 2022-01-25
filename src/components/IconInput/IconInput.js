@@ -22,44 +22,35 @@ const SIZES = {
     },
   },
 };
-const IconInput = ({
-  label,
-  icon,
-  width = 250,
-  size,
-  placeholder,
-  id = "",
-}) => {
+const IconInput = ({ label, icon, width = 250, size, placeholder }) => {
   const variant = SIZES[size];
   return (
     <InputControl>
-      <VisuallyHidden>
-        <label htmlFor={id}>{label}</label>
-      </VisuallyHidden>
+      <VisuallyHidden>{label}</VisuallyHidden>
       <InputIcon id={icon} size={variant.iconSize} />
       <InputWrapper
         type="search"
         placeholder={placeholder}
         width={width}
         style={variant.style}
-        id={id}
       ></InputWrapper>
     </InputControl>
   );
 };
 
-const InputIcon = styled(Icon)`
-  position: absolute;
-  left: 0px;
-  bottom: 4px;
-`;
-
-const InputControl = styled.div`
+const InputControl = styled.label`
+  display: block;
   position: relative;
   color: ${COLORS.gray700};
   &:hover {
     color: ${COLORS.black};
   }
+`;
+
+const InputIcon = styled(Icon)`
+  position: absolute;
+  left: 0px;
+  bottom: 4px;
 `;
 
 const InputWrapper = styled.input`
