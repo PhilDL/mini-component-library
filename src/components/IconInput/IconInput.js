@@ -74,7 +74,7 @@ const InputWrapper = styled.input`
   color: inherit;
   ::placeholder {
     color: ${COLORS.gray500};
-    font-weight: 200;
+    font-weight: 400;
   }
 `;
 

@@ -44,5 +44,8 @@ const SelectIcon = styled(Icon)`
   position: absolute;
   right: 8px;
   top: 10px;
+  // So we can click through the Icon, into the select and
+  // focus the select.
+  pointer-events: none;
 `;
 export default Select;

@@ -17,7 +17,7 @@ const SIZES = {
     "--progress-bar-border-radius": "4px",
   },
   large: {
-    "--progress-bar-height": "24px",
+    "--progress-bar-height": "16px",
     "--progress-bar-padding": "4px",
     "--progress-bar-border-radius": "8px",
   },
@@ -44,24 +44,25 @@ const ProgressBar = ({
       aria-valuemax={valueMax}
       style={styles}
     >
-      <Filler value={percentage}></Filler>
+      <FillerWrapper>
+        <Filler value={percentage}></Filler>
+      </FillerWrapper>
     </ProgressBarWrapper>
   );
 };
 const ProgressBarWrapper = styled.div`
-  height: var(--progress-bar-height);
   background-color: ${COLORS.transparentGray15};
   box-shadow: 0px 2px 4px 0px #80808059 inset;
   border-radius: var(--progress-bar-border-radius);
   padding: var(--progress-bar-padding);
 `;
+const FillerWrapper = styled.div`
+  border-radius: 4px;
+  overflow: hidden;
+`;
 const Filler = styled.div`
   width: ${({ value }) => value}%;
-  height: 100%;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border-top-right-radius: ${({ value }) => (value === 100 ? "4px" : "0")};
-  border-bottom-right-radius: ${({ value }) => (value === 100 ? "4px" : "0")};
+  height: var(--progress-bar-height);
   background-color: ${COLORS.primary};
 `;
 export default ProgressBar;
