@@ -1,21 +1,21 @@
-import { Meta, Story } from '@storybook/addon-docs/blocks';
-import Select from './Select';
+import { Meta, Story } from "@storybook/addon-docs/blocks";
+import Select from "./Select";
 
 <Meta title="Select" component={Select} />
 
 # Select
 
 export const ManagedSelect = () => {
-  const [value, setValue] = React.useState('newest');
+  const [value, setValue] = React.useState("price");
   return (
     <Select
       label="Sort"
       value={value}
       onChange={(ev) => setValue(ev.target.value)}
     >
-      <option value="newest">Newest Releases</option>
       <option value="price">Price</option>
       <option value="curated">Curated</option>
+      <option value="newest">Newest Releases</option>
     </Select>
   );
 };
